@@ -1,3 +1,15 @@
-export default function AboutPage() {
-  return <h1>About Page</h1>;
-}
+// app/about/page.tsx
+
+import { Metadata } from 'next';
+import { redirect } from 'next/navigation';
+
+export const metadata: Metadata = {
+  title: 'About page',
+};
+
+const About = () => {
+  redirect('/');
+  return null;
+};
+
+export default About;
