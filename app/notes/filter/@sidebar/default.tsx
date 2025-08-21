@@ -3,21 +3,19 @@
 import Link from 'next/link';
 import { getCategories } from '@/lib/api';
 
-const NotesSidebar = async () => {
+export default async function NotesSidebar() {
   const categories = await getCategories();
 
   return (
-    <ul>
+    <ul style={{ display: 'grid', gap: 8 }}>
       <li>
-        <Link href={`/notes/filter/all`}>All notes</Link>
+        <Link href="/notes/filter/all">All notes</Link>
       </li>
-      {categories.map((category) => (
+      {categories?.map((category) => (
         <li key={category.id}>
           <Link href={`/notes/filter/${category.id}`}>{category.name}</Link>
         </li>
       ))}
     </ul>
   );
-};
-
-export default NotesSidebar;
+}

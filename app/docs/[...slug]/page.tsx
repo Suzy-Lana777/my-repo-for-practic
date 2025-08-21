@@ -1,7 +1,5 @@
 // app/docs/[...slug]/page.tsx
 
-// app/docs/[...slug]/page.tsx
-
 type Props = {
   params: { slug?: string[] }; // slug може бути необов’язковим
 };

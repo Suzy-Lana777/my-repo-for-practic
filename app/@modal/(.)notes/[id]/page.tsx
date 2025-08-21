@@ -4,11 +4,11 @@ import { getSingleNote } from '@/lib/api';
 import Modal from '@/components/Modal/Modal';
 
 type Props = {
-  params: Promise<{ id: string }>;
+  params: { id: string };
 };
 
-const NotePreview = async ({ params }: Props) => {
-  const { id } = await params;
+export default async function NotePreview({ params }: Props) {
+  const { id } = params;
   const note = await getSingleNote(id);
 
   return (
@@ -17,6 +17,4 @@ const NotePreview = async ({ params }: Props) => {
       <p>{note.content}</p>
     </Modal>
   );
-};
-
-export default NotePreview;
+}
